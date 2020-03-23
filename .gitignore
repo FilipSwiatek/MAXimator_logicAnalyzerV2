@@ -5,7 +5,6 @@
 *.map.summary
 
 /output_files
-/incremental_db
 /simulation
-/db
 /greybox_tmp
+/incremental_db
