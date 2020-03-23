@@ -38,7 +38,7 @@
 
 
 set_global_assignment -name FAMILY "MAX 10"
-set_global_assignment -name DEVICE 10M16DAF484C8G
+set_global_assignment -name DEVICE 10M08DAF256C8G
 set_global_assignment -name TOP_LEVEL_ENTITY logic_analyzer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 19.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "01:13:49  MARCH 23, 2020"
@@ -70,4 +70,24 @@ set_global_assignment -name VHDL_FILE drawer.vhd
 set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name QIP_FILE memory.qip
 set_global_assignment -name BSF_FILE memory.bsf
+set_location_assignment PIN_L3 -to 10M_CLK
+set_location_assignment PIN_L1 -to H_SYNC
+set_location_assignment PIN_R15 -to nRES
+set_location_assignment PIN_J1 -to V_SYNC
+set_location_assignment PIN_L16 -to INPUT_SIGNAL[0]
+set_location_assignment PIN_B16 -to INPUT_SIGNAL[15]
+set_location_assignment PIN_B15 -to INPUT_SIGNAL[14]
+set_location_assignment PIN_C16 -to INPUT_SIGNAL[13]
+set_location_assignment PIN_C15 -to INPUT_SIGNAL[12]
+set_location_assignment PIN_D16 -to INPUT_SIGNAL[11]
+set_location_assignment PIN_D15 -to INPUT_SIGNAL[10]
+set_location_assignment PIN_E16 -to INPUT_SIGNAL[9]
+set_location_assignment PIN_E15 -to INPUT_SIGNAL[8]
+set_location_assignment PIN_F16 -to INPUT_SIGNAL[7]
+set_location_assignment PIN_G16 -to INPUT_SIGNAL[6]
+set_location_assignment PIN_G15 -to INPUT_SIGNAL[5]
+set_location_assignment PIN_H16 -to INPUT_SIGNAL[4]
+set_location_assignment PIN_H15 -to INPUT_SIGNAL[3]
+set_location_assignment PIN_J16 -to INPUT_SIGNAL[2]
+set_location_assignment PIN_J15 -to INPUT_SIGNAL[1]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

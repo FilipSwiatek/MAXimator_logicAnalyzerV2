@@ -3,6 +3,9 @@
 *.flow.rpt
 *.map.rpt
 *.map.summary
-output_files
-incremental_db
-/simulation/modelsim
+
+/output_files
+/incremental_db
+/simulation
+/db
+/greybox_tmp
