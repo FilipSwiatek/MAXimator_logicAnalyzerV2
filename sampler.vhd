@@ -21,7 +21,7 @@ architecture sampler_arch of sampler is
 
 constant SAMPLES_num : integer := 1280; -- number of samples
 
-signal INPUT_first: std_logic_vector(7 downto 0);
+signal INPUT_first: std_logic_vector(15 downto 0);
 signal Q_int: std_logic_vector(15 downto 0);
 signal ADDRQ_int: std_logic_vector(10 downto 0);
 signal TRIGGER: std_logic;
@@ -43,14 +43,14 @@ if rising_edge(CLK) then
 	elsif (CLEARING_MEMORY_ONGOING = '1') then -- when in memory clearing state
 		if(ADDRQ_int < SAMPLES_num) then
 			WREN_int <= '1';
-			Q_int <= "00000000"; 
+			Q_int <= "0000000000000000"; 
 			ADDRQ_int <= ADDRQ_int+1;
 		else 
 			CLEARING_MEMORY_ONGOING <= '0';	
 		end if; -- (ADDRQ_int < SAMPLES_num)
 	else
 		if(CE = '1') then
-			if(TRIGGER = '1' or ((INPUT_first xor INPUT) /= "00000000")) then
+			if(TRIGGER = '1' or ((INPUT_first xor INPUT) /= "0000000000000000")) then
 				if(ADDRQ_int /=  SAMPLES_num - 1) then -- save input state to buffer
 					if(TRIGGER = '1') then
 						ADDRQ_int <= ADDRQ_int + 1;

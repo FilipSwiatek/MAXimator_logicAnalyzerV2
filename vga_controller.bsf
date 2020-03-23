@@ -55,15 +55,15 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 160 64)
 		(output)
-		(text "X[15..0]" (rect 0 0 29 12)(font "Arial" ))
-		(text "X[15..0]" (rect 110 59 139 71)(font "Arial" ))
+		(text "X[10..0]" (rect 0 0 29 12)(font "Arial" ))
+		(text "X[10..0]" (rect 110 59 139 71)(font "Arial" ))
 		(line (pt 160 64)(pt 144 64)(line_width 3))
 	)
 	(port
 		(pt 160 80)
 		(output)
-		(text "Y[15..0]" (rect 0 0 30 12)(font "Arial" ))
-		(text "Y[15..0]" (rect 109 75 139 87)(font "Arial" ))
+		(text "Y[10..0]" (rect 0 0 30 12)(font "Arial" ))
+		(text "Y[10..0]" (rect 109 75 139 87)(font "Arial" ))
 		(line (pt 160 80)(pt 144 80)(line_width 3))
 	)
 	(port

@@ -10,8 +10,8 @@ port    (
             CLK: in std_logic;
             H_SYNC: out std_logic;
             V_SYNC: out std_logic;
-				X: out std_logic_vector(15 downto 0);
-				Y: out std_logic_vector(15 downto 0);
+				X: out std_logic_vector(10 downto 0);
+				Y: out std_logic_vector(10 downto 0);
 				DISP_EN: out std_logic
          );
 end vga_controller;
@@ -37,8 +37,8 @@ constant V_TOTAL_PXLS :integer := V_SIZE_PXLS + V_FRONT_PORCH_PXLS + V_BACK_PORC
 signal H_SYNC_int : std_logic;
 signal V_SYNC_int : std_logic; 
 signal DISP_EN_int: std_logic;
-signal X_int: std_logic_vector(15 downto 0);
-signal Y_int: std_logic_vector(15 downto 0);
+signal X_int: std_logic_vector(10 downto 0);
+signal Y_int: std_logic_vector(10 downto 0);
 
 begin
 
@@ -48,13 +48,13 @@ begin
 		if rising_edge(CLK) then
 		
 			if RST = '1' then
-				X_int <= "0000000000000000";
-				Y_int <= "0000000000000000";
+				X_int <= "00000000000";
+				Y_int <= "00000000000";
 			else			
 				if X_int = H_TOTAL_PXLS - 1 then			
-					X_int<= "0000000000000000";				
+					X_int<= "00000000000";				
 					if Y_int = V_TOTAL_PXLS - 1 then			
-						Y_int <= "0000000000000000";					
+						Y_int <= "00000000000";					
 					else				
 						Y_int <= Y_int+1;					
 					end if; --if Y_int = V_TOTAL_PXLS - 1				

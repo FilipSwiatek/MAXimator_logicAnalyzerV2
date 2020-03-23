@@ -5,3 +5,4 @@
 *.map.summary
 output_files
 incremental_db
+/simulation/modelsim
