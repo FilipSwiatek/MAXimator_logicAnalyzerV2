@@ -11,9 +11,10 @@ port    (
             RST: in std_logic; 
             CLK: in std_logic; -- global clock
             CE: in std_logic;  -- clock enable from prescaler (for sampler only - read clock is not prescaled)
-				ADDRQ: out std_logic_vector (10 downto 0); -- sample address to show on output
 				Q: out std_logic_vector(15 downto 0); -- output made to connect with data in from memory
-				WREN: out std_logic
+				ADDRQ: out std_logic_vector (10 downto 0); -- sample address to show on output
+				WREN: out std_logic;
+				TRIG: out std_logic
          );
 end sampler;
 
@@ -74,6 +75,7 @@ if rising_edge(CLK) then
 end if; --if rising_edge(CLK)
 
 end process;
+TRIG <= TRIGGER;
 WREN <= WREN_int; 
 ADDRQ <= ADDRQ_int;
 Q <= Q_int;

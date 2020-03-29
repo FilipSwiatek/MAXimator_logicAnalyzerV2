@@ -21,14 +21,14 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 192 128)
-	(text "prescaler" (rect 5 0 41 12)(font "Arial" ))
-	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+	(rect 16 16 304 160)
+	(text "drawer" (rect 5 0 32 12)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "rst" (rect 0 0 10 12)(font "Arial" ))
-		(text "rst" (rect 21 27 31 39)(font "Arial" ))
+		(text "disp_en" (rect 0 0 30 12)(font "Arial" ))
+		(text "disp_en" (rect 21 27 51 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 1))
 	)
 	(port
@@ -41,29 +41,39 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 64)
 		(input)
-		(text "FACTOR[15..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "FACTOR[15..0]" (rect 21 59 87 71)(font "Arial" ))
+		(text "SAMPLES[15..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "SAMPLES[15..0]" (rect 21 59 91 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
-		(pt 176 32)
+		(pt 0 80)
+		(input)
+		(text "X[10..0]" (rect 0 0 29 12)(font "Arial" ))
+		(text "X[10..0]" (rect 21 75 50 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "Y[10..0]" (rect 0 0 30 12)(font "Arial" ))
+		(text "Y[10..0]" (rect 21 91 51 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "SAMPLING_FREQUENCY[31..0]" (rect 0 0 143 12)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[31..0]" (rect 21 107 164 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 288 32)
 		(output)
-		(text "ce" (rect 0 0 9 12)(font "Arial" ))
-		(text "ce" (rect 146 27 155 39)(font "Arial" ))
-		(line (pt 176 32)(pt 160 32)(line_width 1))
+		(text "RGB[2..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "RGB[2..0]" (rect 226 27 267 39)(font "Arial" ))
+		(line (pt 288 32)(pt 272 32)(line_width 3))
 	)
-	(parameter
-		"settable"
-		"1"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"PRESCALING_FACTOR"
-		"0000000000000001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
-		(rectangle (rect 16 16 160 96)(line_width 1))
+		(rectangle (rect 16 16 272 128)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 192 -64 292 16))
 )
