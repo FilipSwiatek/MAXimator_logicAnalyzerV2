@@ -8,6 +8,7 @@ entity sampler is
 
 port    (
 				INPUT: in std_logic_vector(15 downto 0); -- sampled 16-bit vector
+				TRIG_KIND: in std_logic_vector(31 downto 0); -- every to bits means other kind of trigger on slope (00 - none, 01 - rising, 10 - falling 11 - both)
             RST: in std_logic; 
             CLK: in std_logic; -- global clock
             CE: in std_logic;  -- clock enable from prescaler (for sampler only - read clock is not prescaled)

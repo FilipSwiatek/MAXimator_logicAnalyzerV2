@@ -73,6 +73,13 @@ https://fpgasoftware.intel.com/eula.
 		(text "SAMPLING_FREQUENCY[31..0]" (rect 124 43 267 55)(font "Arial" ))
 		(line (pt 288 48)(pt 272 48)(line_width 3))
 	)
+	(port
+		(pt 288 64)
+		(output)
+		(text "TRIGGER_KIND[15..0][1..0]" (rect 0 0 118 12)(font "Arial" ))
+		(text "TRIGGER_KIND[15..0][1..0]" (rect 149 59 267 71)(font "Arial" ))
+		(line (pt 288 64)(pt 272 64)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 272 128)(line_width 1))
 	)

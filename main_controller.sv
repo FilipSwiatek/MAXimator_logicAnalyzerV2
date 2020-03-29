@@ -10,7 +10,8 @@ module main_controller
 	
 	// Output Ports
 	output reg unsigned [15:0] PRESCALING_FACTOR,
-	output reg signed [31:0] SAMPLING_FREQUENCY //  frequency 
+	output reg unsigned [31:0] SAMPLING_FREQUENCY, //  frequency 
+	output reg [1:0] TRIGGER_KIND [15:0]
 	
 );
 
