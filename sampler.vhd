@@ -15,7 +15,7 @@ port    (
 				Q: out std_logic_vector(15 downto 0); -- output made to connect with data in from memory
 				ADDRQ: out std_logic_vector (10 downto 0); -- sample address to show on output
 				WREN: out std_logic;
-				TRIG: out std_logic
+				TRIGGER: out std_logic
          );
 end sampler;
 
@@ -26,57 +26,78 @@ constant SAMPLES_num : integer := 1280; -- number of samples
 signal INPUT_first: std_logic_vector(15 downto 0);
 signal Q_int: std_logic_vector(15 downto 0);
 signal ADDRQ_int: std_logic_vector(10 downto 0);
-signal TRIGGER: std_logic;
+signal TRIGGER_int: std_logic;
 signal WREN_int: std_logic;
-signal CLEARING_MEMORY_ONGOING: std_logic := '0';
 
 begin
 
-sampling:process(CLK, RST, CLEARING_MEMORY_ONGOING, ADDRQ_int)
+
+triggering:process(CLK, CE, INPUT_first,INPUT)
 begin
 
 if rising_edge(CLK) then
-	if (RST = '1' and CLEARING_MEMORY_ONGOING = '0') then
+	if RST = '1' then
+		TRIGGER_int <= '0'; -- if rst
+	else
+		if CE = '1' then
+			for i in 0 to 15 loop
+		
+					case TRIG_KIND(2*i+1 downto 2*i) is
+						when "00" =>
+							-- no trigger, do nothing
+						when "01" =>
+							-- rising edge detection
+							if INPUT(i) = '1' and INPUT_first(i) = '0' then
+								TRIGGER_int <= '1';
+							end if; -- INPUT(i) = '1' and INPUT_first(i) = 0
+						when "10" =>
+							-- falling edge detection
+							if INPUT(i) = '0' and INPUT_first(i) = '1' then
+								TRIGGER_int <= '1';
+							end if; -- INPUT(i) = '0' and INPUT_first(i) = 1
+						when "11" =>
+							-- both edges detection
+							if not (INPUT(i) = INPUT_first(i)) then
+								TRIGGER_int <= '1';
+							end if; -- not( INPUT(i) = INPUT_first(i))
+					end case;
+			end loop;
+		end if; -- CE = '1'
+	end if; -- RST = '1'
+end if; -- rising_edge(CLK)
+
+end process;
+
+
+
+sampling:process(CLK, RST, ADDRQ_int, TRIGGER_int)
+begin
+
+if rising_edge(CLK) then
+	if (RST = '1') then
 		ADDRQ_int <= "00000000000";
 		INPUT_first <= INPUT;
-		TRIGGER <= '0';
-		WREN_int <= '1';
-		CLEARING_MEMORY_ONGOING <= '1';
-	elsif (CLEARING_MEMORY_ONGOING = '1') then -- when in memory clearing state
-		if(ADDRQ_int < SAMPLES_num) then
-			WREN_int <= '1';
-			Q_int <= "0000000000000000"; 
-			ADDRQ_int <= ADDRQ_int+1;
-		else 
-			CLEARING_MEMORY_ONGOING <= '0';	
-		end if; -- (ADDRQ_int < SAMPLES_num)
+		WREN_int <= '1';	
 	else
 		if(CE = '1') then
-			if(TRIGGER = '1' or ((INPUT_first xor INPUT) /= "0000000000000000")) then
+			if(TRIGGER_int = '1') then
 				if(ADDRQ_int /=  SAMPLES_num - 1) then -- save input state to buffer
-					if(TRIGGER = '1') then
+					if(TRIGGER_int = '1') then
 						ADDRQ_int <= ADDRQ_int + 1;
 					end if;
-					TRIGGER <= '1';
 					WREN_int <= '1';
 					Q_int <= INPUT;
 				else
 					WREN_int <= '0';
 				end if;
-			end if; -- if(TRIGGER)
+			end if; -- if(TRIGGER_int)
 	
 		end if; --if(CE = '1')
 	end if; -- if RST = '1'
-	
-
-	
-	
-	
-	
 end if; --if rising_edge(CLK)
 
-end process;
-TRIG <= TRIGGER;
+end process; -- sampling
+TRIGGER <= TRIGGER_int;
 WREN <= WREN_int; 
 ADDRQ <= ADDRQ_int;
 Q <= Q_int;

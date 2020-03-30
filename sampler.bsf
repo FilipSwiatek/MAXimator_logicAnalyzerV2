@@ -83,8 +83,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 240 80)
 		(output)
-		(text "TRIG" (rect 0 0 23 12)(font "Arial" ))
-		(text "TRIG" (rect 196 75 219 87)(font "Arial" ))
+		(text "TRIGGER" (rect 0 0 46 12)(font "Arial" ))
+		(text "TRIGGER" (rect 173 75 219 87)(font "Arial" ))
 		(line (pt 240 80)(pt 224 80)(line_width 1))
 	)
 	(drawing
