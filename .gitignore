@@ -29,3 +29,4 @@
 /db/*.tmw_info
 /db/*.hsd
 /db/*.json
+*.rpt
