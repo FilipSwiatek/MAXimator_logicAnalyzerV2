@@ -14,9 +14,49 @@ module prescaler
 
 
 	// Output Ports
-	output ce
+	output reg ce
 );
 
-	// Module Item(s)
+	reg unsigned[15:0] counter;
+	reg unsigned [15:0] final_factor; 
 
+	initial 
+	begin
+		ce = 0;
+		counter = 0;	
+	end
+	
+	
+	
+	
+	
+	always@(negedge clk)
+	begin
+		if(settable == 1) begin
+			final_factor = FACTOR;
+		end	
+		else begin
+			final_factor = PRESCALING_FACTOR;
+		end
+	
+	
+		if(rst == 1) begin
+			counter <= 0;
+		end
+		else begin
+			if(counter < final_factor-1) begin
+				counter <= counter + 1;
+				ce <= 0;
+			end
+			else begin
+				ce <= 1;
+				counter <= 0;
+			end
+		end
+		
+		
+		
+	end
+	
+	//assign ce = ce;
 endmodule
