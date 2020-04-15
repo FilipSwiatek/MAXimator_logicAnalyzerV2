@@ -113,4 +113,5 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id prescaler_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME prescaler_tb -section_id prescaler_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE sampler_tb.v -section_id sampler_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE prescaler_tb.sv -section_id prescaler_tb
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
