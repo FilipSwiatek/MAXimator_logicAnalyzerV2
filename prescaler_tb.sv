@@ -3,7 +3,7 @@
 module prescaler_tb;
 
 	reg rst, clk, ce1, ce2;
-	reg unsigned [15:0] FACTOR;
+	reg unsigned [28:0] FACTOR;
 	
  
   prescaler prescaler_inst1  (.rst(rst), .clk(clk), .FACTOR(FACTOR), .ce(ce1)); 
