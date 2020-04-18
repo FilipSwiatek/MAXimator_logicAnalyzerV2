@@ -560,8 +560,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 64)
 		(input)
-		(text "FACTOR[15..0]" (rect 0 0 76 12)(font "Arial" ))
-		(text "FACTOR[15..0]" (rect 21 59 97 71)(font "Arial" ))
+		(text "FACTOR[28..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "FACTOR[28..0]" (rect 21 59 97 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
@@ -635,15 +635,15 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 288 32)
 		(output)
-		(text "PRESCALING_FACTOR[15..0]" (rect 0 0 153 12)(font "Arial" ))
-		(text "PRESCALING_FACTOR[15..0]" (rect 138 27 267 39)(font "Arial" ))
+		(text "PRESCALING_FACTOR[28..0]" (rect 0 0 153 12)(font "Arial" ))
+		(text "PRESCALING_FACTOR[28..0]" (rect 138 27 267 39)(font "Arial" ))
 		(line (pt 288 32)(pt 272 32)(line_width 3))
 	)
 	(port
 		(pt 288 48)
 		(output)
-		(text "SAMPLING_FREQUENCY[31..0]" (rect 0 0 164 12)(font "Arial" ))
-		(text "SAMPLING_FREQUENCY[31..0]" (rect 129 43 267 55)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[28..0]" (rect 0 0 164 12)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[28..0]" (rect 129 43 267 55)(font "Arial" ))
 		(line (pt 288 48)(pt 272 48)(line_width 3))
 	)
 	(port
@@ -699,8 +699,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 112)
 		(input)
-		(text "SAMPLING_FREQUENCY[31..0]" (rect 0 0 164 12)(font "Arial" ))
-		(text "SAMPLING_FREQUENCY[31..0]" (rect 21 107 185 119)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[28..0]" (rect 0 0 164 12)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[28..0]" (rect 21 107 185 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
@@ -829,12 +829,6 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(text "PRESCALING_FACTOR [15..0]" (rect 90 448 231 465)(font "Intel Clear" ))
-	(pt 224 464)
-	(pt 80 464)
-	(bus)
-)
-(connector
 	(text "TRIG_KIND[31..0]" (rect 146 480 227 497)(font "Intel Clear" ))
 	(pt 80 496)
 	(pt 224 496)
@@ -884,12 +878,6 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt 56 32)
 	(pt -56 32)
-)
-(connector
-	(text "PRESCALING_FACTOR [15..0]" (rect -502 96 -361 113)(font "Intel Clear" ))
-	(pt -368 112)
-	(pt -512 112)
-	(bus)
 )
 (connector
 	(text "SAMPLING_CLK" (rect -504 80 -427 97)(font "Intel Clear" ))
@@ -986,6 +974,18 @@ https://fpgasoftware.intel.com/eula.
 	(text "SAMPLING_CLK" (rect -310 544 -233 561)(font "Intel Clear" ))
 	(pt -312 544)
 	(pt -208 544)
+)
+(connector
+	(text "PRESCALING_FACTOR [28..0]" (rect -502 96 -361 113)(font "Intel Clear" ))
+	(pt -368 112)
+	(pt -512 112)
+	(bus)
+)
+(connector
+	(text "PRESCALING_FACTOR [28..0]" (rect 90 448 231 465)(font "Intel Clear" ))
+	(pt 224 464)
+	(pt 80 464)
+	(bus)
 )
 (junction (pt 352 368))
 (junction (pt 328 112))

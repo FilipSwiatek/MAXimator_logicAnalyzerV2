@@ -41,8 +41,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 64)
 		(input)
-		(text "FACTOR[15..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "FACTOR[15..0]" (rect 21 59 87 71)(font "Arial" ))
+		(text "FACTOR[28..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "FACTOR[28..0]" (rect 21 59 88 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
@@ -59,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"PRESCALING_FACTOR"
-		"0000000000000001"
+		"00000000000000000000000000001"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing

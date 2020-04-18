@@ -6,7 +6,7 @@ module drawer
 	input [15:0] SAMPLES,
 	input unsigned [10:0] X,
 	input unsigned [10:0] Y,
-	input unsigned [31:0] SAMPLING_FREQUENCY,
+	input unsigned [28:0] SAMPLING_FREQUENCY,
 	input trig,
 
 	// Output Ports

@@ -62,8 +62,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 112)
 		(input)
-		(text "SAMPLING_FREQUENCY[31..0]" (rect 0 0 143 12)(font "Arial" ))
-		(text "SAMPLING_FREQUENCY[31..0]" (rect 21 107 164 119)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[28..0]" (rect 0 0 145 12)(font "Arial" ))
+		(text "SAMPLING_FREQUENCY[28..0]" (rect 21 107 166 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
