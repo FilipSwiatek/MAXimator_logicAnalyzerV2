@@ -95,12 +95,7 @@ set_location_assignment PIN_R1 -to RGB[0]
 set_location_assignment PIN_N1 -to RGB[1]
 set_location_assignment PIN_M1 -to RGB[2]
 set_global_assignment -name SYSTEMVERILOG_FILE main_controller.sv
-set_location_assignment PIN_C1 -to TRIG_TOGGLE
 set_location_assignment PIN_F1 -to TRIGGER_STATUS
-set_location_assignment PIN_E1 -to SLOWER
-set_location_assignment PIN_B2 -to CHAN_NEXT
-set_location_assignment PIN_B1 -to CHAN_PREV
-set_location_assignment PIN_D1 -to FASTER
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH prescaler_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME sampler_tb -section_id eda_simulation
@@ -114,4 +109,10 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME prescaler_tb -section_id 
 set_global_assignment -name EDA_TEST_BENCH_FILE sampler_tb.v -section_id sampler_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE prescaler_tb.sv -section_id prescaler_tb
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+set_global_assignment -name SYSTEMVERILOG_FILE main_controller_tb.sv
+set_location_assignment PIN_E1 -to nSLOWER
+set_location_assignment PIN_C1 -to nTRIG_TOGGLE
+set_location_assignment PIN_B2 -to nCHAN_NEXT
+set_location_assignment PIN_B1 -to nCHAN_PREV
+set_location_assignment PIN_D1 -to nFASTER
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
