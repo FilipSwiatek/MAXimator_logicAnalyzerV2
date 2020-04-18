@@ -17,10 +17,33 @@ always
 	#1 clk = ~clk;
 	
 initial begin
-	#3 faster = 1;
-	#70 faster = 0;
-	slower = 1;
-	#70 slower = 0;
+	// checking if faster and slower events work correctly
+	for (int i = 0; i < 34; i++) begin 
+		#2 faster = 1;
+		#2 faster = 0;
+	end
+	for (int i = 0; i < 34; i++) begin 
+		#2 slower = 1;
+		#2 slower = 0;
+	end
+	// checking if channel trigger setup is set correctly
+	for (int k = 0; k < 17; k++) begin
+		for (int i = 0; i < 4; i++) begin 
+			#2 trig_toggle = 1;
+			#2 trig_toggle = 0;
+		end
+		#2 chan_next = 1;
+		#2 chan_next = 0;
+	end
+	for (int k = 0; k < 17; k++) begin
+		for (int i = 0; i < 4; i++) begin 
+			#2 trig_toggle = 1;
+			#2 trig_toggle = 0;
+		end
+		#2 chan_prev = 1;
+		#2 chan_prev = 0;
+	end
+	
 end
 
 main_controller  UUT(

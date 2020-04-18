@@ -59,9 +59,13 @@ module main_controller(
 	// channel select process (chan_next button has higher priority)
 	always_ff @(posedge clk) begin : channel_select_process 
 		if(chan_next && !chan_next_prev) begin //  when chan_next button is pressed but previously wasn't
-			current_channel++;
+			if(current_channel != 15) begin
+				current_channel++;
+			end
 		end else if(!chan_prev && chan_prev_prev) begin //  when chan_prev button is pressed but previously wasn't
-			current_channel--;
+			if(current_channel != 0) begin
+				current_channel--;
+			end
 		end
 	end : channel_select_process
 	
