@@ -21,7 +21,7 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 320 160)
+	(rect 16 16 272 160)
 	(text "sampler" (rect 5 0 36 12)(font "Arial" ))
 	(text "inst" (rect 8 128 20 140)(font "Arial" ))
 	(port
@@ -34,8 +34,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 48)
 		(input)
-		(text "TRIG_KIND[bus_width-1..0][1..0]" (rect 0 0 132 12)(font "Arial" ))
-		(text "TRIG_KIND[bus_width-1..0][1..0]" (rect 21 43 153 55)(font "Arial" ))
+		(text "TRIG_KIND[31..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "TRIG_KIND[31..0]" (rect 21 43 97 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
@@ -60,32 +60,32 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 96)(pt 16 96)(line_width 1))
 	)
 	(port
-		(pt 304 32)
+		(pt 256 32)
 		(output)
 		(text "Q[bus_width-1..0]" (rect 0 0 67 12)(font "Arial" ))
-		(text "Q[bus_width-1..0]" (rect 216 27 283 39)(font "Arial" ))
-		(line (pt 304 32)(pt 288 32)(line_width 3))
+		(text "Q[bus_width-1..0]" (rect 168 27 235 39)(font "Arial" ))
+		(line (pt 256 32)(pt 240 32)(line_width 3))
 	)
 	(port
-		(pt 304 48)
+		(pt 256 48)
 		(output)
 		(text "ADDRQ[10..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "ADDRQ[10..0]" (rect 222 43 283 55)(font "Arial" ))
-		(line (pt 304 48)(pt 288 48)(line_width 3))
+		(text "ADDRQ[10..0]" (rect 174 43 235 55)(font "Arial" ))
+		(line (pt 256 48)(pt 240 48)(line_width 3))
 	)
 	(port
-		(pt 304 64)
+		(pt 256 64)
 		(output)
 		(text "WREN" (rect 0 0 33 12)(font "Arial" ))
-		(text "WREN" (rect 250 59 283 71)(font "Arial" ))
-		(line (pt 304 64)(pt 288 64)(line_width 1))
+		(text "WREN" (rect 202 59 235 71)(font "Arial" ))
+		(line (pt 256 64)(pt 240 64)(line_width 1))
 	)
 	(port
-		(pt 304 80)
+		(pt 256 80)
 		(output)
 		(text "TRIGGER" (rect 0 0 46 12)(font "Arial" ))
-		(text "TRIGGER" (rect 237 75 283 87)(font "Arial" ))
-		(line (pt 304 80)(pt 288 80)(line_width 1))
+		(text "TRIGGER" (rect 189 75 235 87)(font "Arial" ))
+		(line (pt 256 80)(pt 240 80)(line_width 1))
 	)
 	(parameter
 		"BUS_WIDTH"
@@ -93,7 +93,7 @@ https://fpgasoftware.intel.com/eula.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 288 128)(line_width 1))
+		(rectangle (rect 16 16 240 128)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 320 -64 420 16))
+	(annotation_block (parameter)(rect 272 -64 372 16))
 )
