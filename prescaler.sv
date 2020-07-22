@@ -33,10 +33,10 @@ module prescaler
 	always@(negedge clk)
 	begin
 		if(settable == 1) begin
-			final_factor = FACTOR;
+			final_factor <= FACTOR;
 		end	
 		else begin
-			final_factor = PRESCALING_FACTOR;
+			final_factor <= PRESCALING_FACTOR;
 		end
 	
 	

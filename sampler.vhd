@@ -3,17 +3,32 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
+package trig_kind_type_package is
+	type trig_kind_type is array (integer range <>) of std_logic_vector(1 downto 0); -- every couple of bits means other kind of trigger on slope (00 - none, 01 - rising, 10 - falling 11 - both)
+end package trig_kind_type_package;		
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+use work.trig_kind_type_package.all;
 
 entity sampler is
 
+generic (
+				BUS_WIDTH :integer := 16
+);
+
+
 port    (
-				INPUT: in std_logic_vector(15 downto 0); -- sampled 16-bit vector
-				TRIG_KIND: in std_logic_vector(31 downto 0); -- every to bits means other kind of trigger on slope (00 - none, 01 - rising, 10 - falling 11 - both)
+
+				INPUT: in std_logic_vector(BUS_WIDTH -1 downto 0); -- sampled BUS_WIDTH-bit vector
+				TRIG_KIND: in trig_kind_type (BUS_WIDTH -1 downto 0); 
             RST: in std_logic; 
             CLK: in std_logic; -- global clock
             CE: in std_logic;  -- clock enable from prescaler (for sampler only - read clock is not prescaled)
-				Q: out std_logic_vector(15 downto 0); -- output made to connect with data in from memory
-				ADDRQ: out unsigned (10 downto 0); -- sample address to show on output
+				Q: out std_logic_vector(BUS_WIDTH -1 downto 0); -- output made to connect with data in from memory
+				ADDRQ: out unsigned (10 downto 0); -- sample address to be shown on the output
 				WREN: out std_logic;
 				TRIGGER: out std_logic
          );
@@ -23,7 +38,7 @@ architecture sampler_arch of sampler is
 
 constant SAMPLES_num : integer := 1280; -- number of samples
 
-signal INPUT_prev: std_logic_vector(15 downto 0);
+signal INPUT_prev: std_logic_vector(BUS_WIDTH -1 downto 0);
 signal Q_int: std_logic_vector(15 downto 0);
 signal ADDRQ_int: unsigned(10 downto 0):="00000000000";
 signal TRIGGER_int: std_logic := '0';
@@ -44,10 +59,8 @@ if rising_edge(CLK) then
 		TRIGGER_int <= '0'; -- if rst
 	else
 		if CE = '1' then
-			for i in 0 to 15 loop
-			INDIVIDUAL_CASE_TRIG := TRIG_KIND(2*i+1 downto 2*i);
-		
-					case INDIVIDUAL_CASE_TRIG is
+			for i in 0 to BUS_WIDTH - 1 loop
+					case TRIG_KIND(i) is
 						when "00" =>
 							-- no trigger, do nothing
 						when "01" =>

@@ -35,7 +35,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -752 416 -696 440))
 )
 (pin
 	(input)
@@ -52,7 +51,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "GND" (rect 136 7 157 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -416 -24 -352 0))
 )
 (pin
 	(input)
@@ -69,7 +67,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -760 320 -696 344))
 )
 (pin
 	(input)
@@ -86,7 +83,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -496 256 -440 280))
 )
 (pin
 	(input)
@@ -103,7 +99,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -752 384 -696 408))
 )
 (pin
 	(input)
@@ -120,7 +115,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -752 448 -696 472))
 )
 (pin
 	(input)
@@ -137,7 +131,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -752 480 -696 504))
 )
 (pin
 	(input)
@@ -154,7 +147,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -752 352 -696 376))
 )
 (pin
 	(output)
@@ -171,7 +163,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 568 344 624 368))
 )
 (pin
 	(output)
@@ -188,7 +179,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 568 360 624 384))
 )
 (pin
 	(output)
@@ -205,7 +195,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1312 0 1368 24))
 )
 (pin
 	(output)
@@ -222,24 +211,23 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 632 152 688 176))
 )
 (symbol
-	(rect 56 -64 296 80)
+	(rect 40 -64 344 80)
 	(text "sampler" (rect 5 0 43 12)(font "Arial" ))
 	(text "inst" (rect 8 128 25 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "INPUT[15..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "INPUT[15..0]" (rect 21 27 85 39)(font "Arial" ))
+		(text "INPUT[bus_width-1..0]" (rect 0 0 110 12)(font "Arial" ))
+		(text "INPUT[bus_width-1..0]" (rect 21 27 131 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "TRIG_KIND[31..0]" (rect 0 0 90 12)(font "Arial" ))
-		(text "TRIG_KIND[31..0]" (rect 21 43 111 55)(font "Arial" ))
+		(text "TRIG_KIND[bus_width-1..0][1..0]" (rect 0 0 162 12)(font "Arial" ))
+		(text "TRIG_KIND[bus_width-1..0][1..0]" (rect 21 43 183 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
@@ -264,36 +252,42 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 96)(pt 16 96))
 	)
 	(port
-		(pt 240 32)
+		(pt 304 32)
 		(output)
-		(text "Q[15..0]" (rect 0 0 40 12)(font "Arial" ))
-		(text "Q[15..0]" (rect 186 27 219 39)(font "Arial" ))
-		(line (pt 240 32)(pt 224 32)(line_width 3))
+		(text "Q[bus_width-1..0]" (rect 0 0 86 12)(font "Arial" ))
+		(text "Q[bus_width-1..0]" (rect 211 27 283 39)(font "Arial" ))
+		(line (pt 304 32)(pt 288 32)(line_width 3))
 	)
 	(port
-		(pt 240 48)
+		(pt 304 48)
 		(output)
 		(text "ADDRQ[10..0]" (rect 0 0 71 12)(font "Arial" ))
-		(text "ADDRQ[10..0]" (rect 159 43 219 55)(font "Arial" ))
-		(line (pt 240 48)(pt 224 48)(line_width 3))
+		(text "ADDRQ[10..0]" (rect 223 43 283 55)(font "Arial" ))
+		(line (pt 304 48)(pt 288 48)(line_width 3))
 	)
 	(port
-		(pt 240 64)
+		(pt 304 64)
 		(output)
 		(text "WREN" (rect 0 0 34 12)(font "Arial" ))
-		(text "WREN" (rect 191 59 219 71)(font "Arial" ))
-		(line (pt 240 64)(pt 224 64))
+		(text "WREN" (rect 255 59 283 71)(font "Arial" ))
+		(line (pt 304 64)(pt 288 64))
 	)
 	(port
-		(pt 240 80)
+		(pt 304 80)
 		(output)
 		(text "TRIGGER" (rect 0 0 49 12)(font "Arial" ))
-		(text "TRIGGER" (rect 178 75 219 87)(font "Arial" ))
-		(line (pt 240 80)(pt 224 80))
+		(text "TRIGGER" (rect 242 75 283 87)(font "Arial" ))
+		(line (pt 304 80)(pt 288 80))
 	)
+	(parameter
+		"BUS_WIDTH"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 224 128))
+		(rectangle (rect 16 16 288 128))
 	)
+	(annotation_block (parameter)(rect 96 -120 280 -80))
 )
 (symbol
 	(rect -240 184 0 352)
@@ -967,31 +961,6 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(pt -176 -32)
-	(pt 56 -32)
-	(bus)
-)
-(connector
-	(text "SAMPLING_CLK" (rect -32 0 45 17)(font "Intel Clear" ))
-	(pt -32 16)
-	(pt 56 16)
-)
-(connector
-	(text "RESET" (rect -22 -16 8 1)(font "Intel Clear" ))
-	(pt 56 0)
-	(pt -32 0)
-)
-(connector
-	(text "TRIG_KIND[31..0]" (rect -22 -32 59 -15)(font "Intel Clear" ))
-	(pt 56 -16)
-	(pt -32 -16)
-	(bus)
-)
-(connector
-	(pt 56 32)
-	(pt -56 32)
-)
-(connector
 	(text "SAMPLING_CLK" (rect -504 80 -427 97)(font "Intel Clear" ))
 	(pt -512 96)
 	(pt -368 96)
@@ -1004,10 +973,6 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt -56 80)
 	(pt -192 80)
-)
-(connector
-	(pt -56 32)
-	(pt -56 80)
 )
 (connector
 	(text "SAMPLING_CLK" (rect 18 232 95 249)(font "Intel Clear" ))
@@ -1024,31 +989,9 @@ https://fpgasoftware.intel.com/eula.
 	(pt -240 248)
 )
 (connector
-	(pt 456 144)
-	(pt 328 144)
-)
-(connector
-	(pt 296 16)
-	(pt 328 16)
-)
-(connector
 	(text "VGA_CLK" (rect 722 -8 769 9)(font "Intel Clear" ))
 	(pt 824 8)
 	(pt 712 8)
-)
-(connector
-	(pt 296 -32)
-	(pt 440 -32)
-	(bus)
-)
-(connector
-	(pt 296 -16)
-	(pt 440 -16)
-	(bus)
-)
-(connector
-	(pt 296 0)
-	(pt 440 0)
 )
 (connector
 	(pt 392 336)
@@ -1065,18 +1008,6 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt 728 88)
 	(pt 728 112)
-)
-(connector
-	(pt 328 112)
-	(pt 728 112)
-)
-(connector
-	(pt 328 16)
-	(pt 328 112)
-)
-(connector
-	(pt 328 112)
-	(pt 328 144)
 )
 (connector
 	(text "PRESCALING_FACTOR [28..0]" (rect -502 96 -361 113)(font "Intel Clear" ))
@@ -1174,5 +1105,68 @@ https://fpgasoftware.intel.com/eula.
 	(pt -208 464)
 	(pt -296 464)
 )
+(connector
+	(pt 456 144)
+	(pt 416 144)
+)
+(connector
+	(text "SAMPLING_CLK" (rect -48 0 29 17)(font "Intel Clear" ))
+	(pt -48 16)
+	(pt 40 16)
+)
+(connector
+	(text "RESET" (rect -38 -16 -8 1)(font "Intel Clear" ))
+	(pt 40 0)
+	(pt -48 0)
+)
+(connector
+	(text "TRIG_KIND[31..0]" (rect -38 -32 43 -15)(font "Intel Clear" ))
+	(pt 40 -16)
+	(pt -48 -16)
+	(bus)
+)
+(connector
+	(pt -56 32)
+	(pt 40 32)
+)
+(connector
+	(pt -56 80)
+	(pt -56 32)
+)
+(connector
+	(pt -176 -32)
+	(pt 40 -32)
+	(bus)
+)
+(connector
+	(pt 416 112)
+	(pt 416 144)
+)
+(connector
+	(pt 344 112)
+	(pt 344 16)
+)
+(connector
+	(pt 344 112)
+	(pt 416 112)
+)
+(connector
+	(pt 416 112)
+	(pt 728 112)
+)
+(connector
+	(pt 344 -32)
+	(pt 440 -32)
+	(bus)
+)
+(connector
+	(pt 344 -16)
+	(pt 440 -16)
+	(bus)
+)
+(connector
+	(pt 344 0)
+	(pt 440 0)
+)
 (junction (pt 352 368))
-(junction (pt 328 112))
+(junction (pt 416 112))
