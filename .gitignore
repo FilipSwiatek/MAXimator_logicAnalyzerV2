@@ -32,3 +32,4 @@
 *.rpt
 /*.srf
 /db/*.db_info
+/*.qws
